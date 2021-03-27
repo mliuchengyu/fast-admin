@@ -1,0 +1,75 @@
+.el-select,
+.el-cascader {
+  width: 185px;
+}
+
+
+
+.el-select--mini,
+.el-cascader--mini {
+  width: 163px;
+}
+
+.el-select--small,
+.el-cascader--small {
+  width: 184px;
+}
+
+.el-select--medium,
+.el-cascader--medium {
+  width: 185px;
+}
+
+.el-select--default,
+.el-cascader--default {
+  width: 185px;
+}
+
+.el-form-item {
+  .el-form-item__label {
+    font-weight: normal;
+  }
+}
+.el-button {
+  padding: 7px 10px;
+  min-width: 50px;
+}
+/* 
+************************************
+* 1.边框消失：被固定栏遮挡：上/下/左/右
+* 2.调整边距后问题：线条偏差错位：标题与内容不对齐（右侧固定栏多出内容：需要设置自适应宽度）
+* 3.操作栏按钮高度不够:表格行间距是padding：6px 0;按钮内边距是：7px 15px
+************************************
+*/
+//设置高优先，以覆盖内联样式
+.el-table >.el-table__fixed-right {
+  height: 100% !important; 
+  right: -1px;
+  border-right: 1px solid #D8D8D8;
+}
+// 表格边框缺失问题：其实是表格线条颜色加深问题，无法识别
+.el-table__fixed::before, .el-table__fixed-right::before {
+  background-color: #D8D8D8;
+}
+
+// 缩放错位：
+ body .el-table th.gutter{
+   display: table-cell!important;
+ }
+ body .el-table colgroup.gutter{
+   display: table-cell!important;
+ }
+//  表格与内容变形
+ body .el-table--border th.gutter:last-of-type { 
+   display: block!important;
+   width: 17px!important;
+ }
+ 
+ body table {
+   width: 100% !important;
+ }
+ // 使表格兼容safari，不错位
+ body .el-table__body {  
+   width: 100%;
+   table-layout: fixed !important;
+ }
